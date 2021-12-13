@@ -1,7 +1,7 @@
 #include "GameOver.hpp"
 #include "GamePlay.hpp"
 #include "MainMenu.hpp"
-
+#include <iostream>
 #include <SFML/Window/Event.hpp>
 
 GameOver::GameOver(std::shared_ptr<Context>& context)
@@ -75,14 +75,13 @@ void GameOver::ProcessInput()
                     m_isRetryButtonSelected = false;
                     m_isExitButtonSelected = true;
                     m_isMenuButtonSelected = false;
-                }else
-                if (m_isMenuButtonSelected)
+                }else if (m_isMenuButtonSelected)
                  {
                      m_isRetryButtonSelected = true;
                      m_isExitButtonSelected = false;
                      m_isMenuButtonSelected = false;
                  }
-                if (m_isExitButtonSelected)
+                else if (m_isExitButtonSelected)
                 {
                     m_isRetryButtonSelected = false;
                     m_isExitButtonSelected = false;
@@ -110,7 +109,7 @@ void GameOver::ProcessInput()
                         m_isExitButtonSelected = true;
                         m_isMenuButtonSelected = false;
                     }
-                if (m_isExitButtonSelected)
+                else if (m_isExitButtonSelected)
                 {
                     m_isRetryButtonSelected = true;
                     m_isExitButtonSelected = false;
@@ -122,13 +121,17 @@ void GameOver::ProcessInput()
             {
                 m_isRetryButtonPressed = false;
                 m_isExitButtonPressed = false;
-                m_isMenuButtonSelected = false;
+                m_isMenuButtonPressed = false;
 
                 if (m_isRetryButtonSelected)
                 {
                     m_isRetryButtonPressed = true;
                 }
-                else
+                else if (m_isMenuButtonSelected)
+                {
+                    m_isMenuButtonPressed = true;
+                }
+                else if(m_isExitButtonSelected)
                 {
                     m_isExitButtonPressed = true;
                 }
@@ -170,8 +173,13 @@ void GameOver::Update(sf::Time deltaTime)
     {
         m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
     }
-    else if (m_isMenuButtonPressed)
+    if (m_isMenuButtonPressed)
     {
+       // m_context->m_window->close();
+        //m_context->m_states->Add(std::make_unique<MainMenu>(m_context), true);
+        m_context->m_states->Add(std::make_unique<MainMenu>(m_context), true);
+
+
         //to do
     }
     else if (m_isExitButtonPressed)
