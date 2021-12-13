@@ -70,32 +70,55 @@ void MainMenu::ProcessInput()
             {
             case sf::Keyboard::Up:
             {
-                if (!m_isPlayButtonSelected)
-                {
-                    m_isPlayButtonSelected = true;
-                    m_isExitButtonSelected = false;
-                    m_isOnlineButtonSelected = false;
-                }
-                break;
-            }
-            case sf::Keyboard::Down:
-            {
-                if (!m_isExitButtonSelected)
-                {
-                    m_isPlayButtonSelected = false;
-                    m_isExitButtonSelected = false;
-                    m_isOnlineButtonSelected = true;
-                }
-                break;
-            }
-            case sf::Keyboard::Escape:
-            {
-                if (!m_isExitButtonSelected)
+                if (m_isPlayButtonSelected)
                 {
                     m_isPlayButtonSelected = false;
                     m_isExitButtonSelected = true;
                     m_isOnlineButtonSelected = false;
                 }
+                else
+                    if (m_isExitButtonSelected)
+                    {
+                        m_isPlayButtonSelected = false;
+                        m_isExitButtonSelected = false;
+                        m_isOnlineButtonSelected = true;
+                    }
+                    else
+                        if (m_isOnlineButtonSelected)
+                        {
+                            m_isPlayButtonSelected = true;
+                            m_isExitButtonSelected = false;
+                            m_isOnlineButtonSelected = false;
+                        }
+                break;
+            }
+            case sf::Keyboard::Down:
+            {
+                if (m_isPlayButtonSelected)
+                {
+                    m_isPlayButtonSelected = false;
+                    m_isExitButtonSelected = false;
+                    m_isOnlineButtonSelected = true;
+                }
+                else
+                    if (m_isExitButtonSelected)
+                    {
+                        m_isPlayButtonSelected = true;
+                        m_isExitButtonSelected = false;
+                        m_isOnlineButtonSelected = false;
+                    }
+                    else
+                        if (m_isOnlineButtonSelected)
+                        {
+                            m_isPlayButtonSelected = false;
+                            m_isExitButtonSelected = true;
+                            m_isOnlineButtonSelected = false;
+                        }
+                break;
+            }
+            case sf::Keyboard::Escape:
+            {
+                m_context->m_window->close();
                 break;
             }
             case sf::Keyboard::Return:
@@ -108,7 +131,7 @@ void MainMenu::ProcessInput()
                 {
                     m_isPlayButtonPressed = true;
                 }
-                else if (m_isExitButtonPressed)
+                else if (m_isExitButtonSelected)
                 {
                     m_isExitButtonPressed = true;
                 }

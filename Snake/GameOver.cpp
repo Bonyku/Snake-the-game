@@ -70,31 +70,51 @@ void GameOver::ProcessInput()
             {
             case sf::Keyboard::Up:
             {
-                if (!m_isRetryButtonSelected)
+                if (m_isRetryButtonSelected)
                 {
-                    m_isRetryButtonSelected = true;
-                    m_isExitButtonSelected = false;
+                    m_isRetryButtonSelected = false;
+                    m_isExitButtonSelected = true;
                     m_isMenuButtonSelected = false;
+                }else
+                if (m_isMenuButtonSelected)
+                 {
+                     m_isRetryButtonSelected = true;
+                     m_isExitButtonSelected = false;
+                     m_isMenuButtonSelected = false;
+                 }
+                if (m_isExitButtonSelected)
+                {
+                    m_isRetryButtonSelected = false;
+                    m_isExitButtonSelected = false;
+                    m_isMenuButtonSelected = true;
                 }
                 break;
             }
             case sf::Keyboard::Escape:
             {
-                if (!m_isExitButtonSelected)
-                {
-                    m_isRetryButtonSelected = false;
-                    m_isExitButtonSelected = true;
-                    m_isMenuButtonSelected = false;
-                }
+                m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
                 break;
             }
             case sf::Keyboard::Down:
             {
-                if (!m_isMenuButtonSelected)
+                if (m_isRetryButtonSelected)
                 {
                     m_isRetryButtonSelected = false;
                     m_isExitButtonSelected = false;
                     m_isMenuButtonSelected = true;
+                }
+                else
+                    if (m_isMenuButtonSelected)
+                    {
+                        m_isRetryButtonSelected = false;
+                        m_isExitButtonSelected = true;
+                        m_isMenuButtonSelected = false;
+                    }
+                if (m_isExitButtonSelected)
+                {
+                    m_isRetryButtonSelected = true;
+                    m_isExitButtonSelected = false;
+                    m_isMenuButtonSelected = false;
                 }
                 break;
             }
