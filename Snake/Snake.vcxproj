@@ -87,8 +87,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Bonyk\Desktop\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Bonyk\Desktop\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Patryk\OneDrive\Desktop\Studia\CPP\SFML-2.5.1\include;C:\Users\Bonyk\Desktop\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Patryk\OneDrive\Desktop\Studia\CPP\SFML-2.5.1\lib;C:\Users\Bonyk\Desktop\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -182,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Downloads\Pacifico\OFL.txt" />
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\..\..\..\Downloads\Pacifico\Pacifico-Regular.ttf" />

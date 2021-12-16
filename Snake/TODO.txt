@@ -1,0 +1,12 @@
+Randomizacja jedzonka --- Patryk
+Poziomy trudnoœci
+Ustawienia rozdzielczoœci
+Przepisaæ na stl !!!!!!!!
+Podzieliæ wê¿a na body i tail, ruchoma g³owa
+Serwer klient
+Zapisywanie punktów pliku/czegoœ z stl
+Odczytywanie tablicy najlepszych np 10 graczy
+Podawanie nicku przed rozpoczêciem gry.
+Dodaæ do menu tê tablice graczy
+Dodaæ w menu opcje w którym bêdzie zmiana rozdzielczoœci.
+Poprawiæ menu wg zastrze¿eñ prowadz¹cego ;P w sensie strza³k¹ przeskakujemy przez jakiœ iterator i wtedy zmieniaj¹ siê opcje 

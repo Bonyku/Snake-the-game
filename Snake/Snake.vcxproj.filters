@@ -76,6 +76,9 @@
     <Text Include="..\..\..\..\Downloads\Pacifico\OFL.txt">
       <Filter>Pliki zasobów</Filter>
     </Text>
+    <Text Include="TODO.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\..\..\..\Downloads\Pacifico\Pacifico-Regular.ttf">
