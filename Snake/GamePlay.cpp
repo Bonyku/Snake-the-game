@@ -26,7 +26,7 @@ GamePlay::~GamePlay()
 void GamePlay::Init()
 {
     m_context->m_assets->AddTexture(GRASS, "grass.png", true);
-    m_context->m_assets->AddTexture(FOOD, "food1.png");
+    m_context->m_assets->AddTexture(FOOD, "food1.png");//trzeba dodac random generator owockow
     m_context->m_assets->AddTexture(WALL, "wall.png", true);
     m_context->m_assets->AddTexture(SNAKE, "body.png");
 
