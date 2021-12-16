@@ -28,7 +28,7 @@ void GamePlay::Init()
     m_context->m_assets->AddTexture(GRASS, "grass.png", true);
     m_context->m_assets->AddTexture(FOOD, "food1.png");
     m_context->m_assets->AddTexture(WALL, "wall.png", true);
-    m_context->m_assets->AddTexture(SNAKE, "head_up.png");
+    m_context->m_assets->AddTexture(SNAKE, "body.png");
 
     m_grass.setTexture(m_context->m_assets->GetTexture(GRASS));
     m_grass.setTextureRect(m_context->m_window->getViewport(m_context->m_window->getDefaultView()));
