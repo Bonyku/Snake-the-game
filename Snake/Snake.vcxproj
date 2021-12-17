@@ -166,6 +166,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="AssetMan.cpp" />
     <ClCompile Include="PauseGame.cpp" />
+    <ClCompile Include="Resolution.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="StateMan.cpp" />
   </ItemGroup>
@@ -176,6 +177,7 @@
     <ClInclude Include="GamePlay.hpp" />
     <ClInclude Include="MainMenu.hpp" />
     <ClInclude Include="PauseGame.hpp" />
+    <ClInclude Include="Resolution.hpp" />
     <ClInclude Include="Snake.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateMan.hpp" />

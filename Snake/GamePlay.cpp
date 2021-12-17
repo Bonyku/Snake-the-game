@@ -6,6 +6,11 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <cstdio>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iostream>
 
 
 
@@ -23,10 +28,21 @@ GamePlay::~GamePlay()
 {
 }
 
+std::string RandomFood()
+{
+    srand(time(NULL));
+    std::vector<std::string> Vector_food = { "", "food1.png", "food2.png", "food3.png", "food4.png", "food5.png", "food6.png", "food7.png", "food8.png" };
+
+    int randomInt = rand() % 8 + 1;
+    return Vector_food[randomInt];
+}
+
 void GamePlay::Init()
 {
+    std::string food = RandomFood();
+
     m_context->m_assets->AddTexture(GRASS, "grass.png", true);
-    m_context->m_assets->AddTexture(FOOD, "food1.png");//trzeba dodac random generator owockow
+    m_context->m_assets->AddTexture(FOOD, food);//trzeba dodac random generator owockow
     m_context->m_assets->AddTexture(WALL, "wall.png", true);
     m_context->m_assets->AddTexture(SNAKE, "body.png");
 
@@ -96,6 +112,7 @@ void GamePlay::ProcessInput()
                 m_snakeDirection = newDirection;
             }
         }
+
     }
 }
 
@@ -111,6 +128,15 @@ void GamePlay::Update(sf::Time deltaTime)
             {
                 if (m_snake.IsOn(wall))
                 {
+                    int score = m_score;
+                    std::ofstream myfile("Score.txt");
+                    if (myfile.is_open())
+                    {
+                        myfile << "This is a score: ";
+                        myfile << score;
+                        myfile.close();
+                        std::cout << score;
+                    }
                     m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
                     break;
                 }
@@ -121,9 +147,12 @@ void GamePlay::Update(sf::Time deltaTime)
                 m_snake.Grow(m_snakeDirection);
 
                 int x = 0, y = 0;
-               x = std::clamp<int>(rand() % m_context->m_window->getSize().x, 16, m_context->m_window->getSize().x - 2 * 16);
-               y = std::clamp<int>(rand() % m_context->m_window->getSize().y, 16, m_context->m_window->getSize().y - 2 * 16);
+                x = std::clamp<int>(rand() % m_context->m_window->getSize().x, 16, m_context->m_window->getSize().x - 2 * 16);
+                y = std::clamp<int>(rand() % m_context->m_window->getSize().y, 16, m_context->m_window->getSize().y - 2 * 16);
 
+                std::string food = RandomFood();
+                m_context->m_assets->AddTexture(FOOD, food);
+                m_food.setTexture(m_context->m_assets->GetTexture(FOOD));
                 m_food.setPosition(x, y);
                 m_score += 1;
                 m_scoreText.setString("Score : " + std::to_string(m_score));
@@ -135,6 +164,15 @@ void GamePlay::Update(sf::Time deltaTime)
 
             if (m_snake.IsSelfIntersecting())
             {
+                int score = m_score;
+                std::ofstream myfile("Score.txt");
+                if (myfile.is_open())
+                {
+                    myfile << "This is a score: ";
+                    myfile << score;
+                    myfile.close();
+                    std::cout << score;
+                }
                 m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
             }
 

@@ -2,10 +2,12 @@
 
 #include "Game.hpp"
 #include "MainMenu.hpp"
+#include "Resolution.hpp"
 
 Game::Game() : m_context(std::make_shared<Context>())
 {
-    m_context->m_window->create(sf::VideoMode(1920, 1080), "Snake THE Game", sf::Style::Close);
+
+    m_context->m_window->create(sf::VideoMode(first_res, second_res), "Snake The Game", sf::Style::Close);
     m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
 }
 

@@ -41,4 +41,6 @@ public:
     ~Game();
 
     void Run();
+    int first_res = 1280;
+    int second_res = 720;
 };
