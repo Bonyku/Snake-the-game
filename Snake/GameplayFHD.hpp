@@ -18,7 +18,7 @@ private:
     sf::Sprite m_grass;
     sf::Sprite m_food;
     std::array<sf::Sprite, 4> m_walls;
-    Snake m_snake;
+    SnakeFHD m_snake;
 
     sf::Text m_scoreText;
     int m_score;

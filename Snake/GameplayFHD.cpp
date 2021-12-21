@@ -70,7 +70,7 @@ void GamePlayFHD::Init()
 
     m_scoreText.setFont(m_context->m_assets->GetFont(MAIN_FONT));
     m_scoreText.setString("Score : " + std::to_string(m_score));
-    m_scoreText.setCharacterSize(15);
+    m_scoreText.setCharacterSize(25);
 }
 
 void GamePlayFHD::ProcessInput()
