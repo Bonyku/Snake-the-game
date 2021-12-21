@@ -1,6 +1,8 @@
 #include "Resolution.hpp"
 #include "MainMenu.hpp"
 #include "Game.hpp"
+#include "GamePlay.hpp"
+#include "GamePlayFHD.hpp"
 
 #include <iostream>
 #include <SFML/Window/Event.hpp>
@@ -187,13 +189,11 @@ void Resolution::Update(sf::Time deltaTime)
 
     if (m_isFirst_ResolutionButtonPressed)
     {
-        //first_res = 1280;
-       // second_res = 720;
+        m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
     }
     if (m_isSecond_ResolutionPressed)
     {
-            //first_res = 1920;
-            //second_res = 1080;
+        m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
     }
     else if (m_isBackButtonPressed)
     {
