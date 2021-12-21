@@ -1,5 +1,6 @@
 #include "GameOver.hpp"
 #include "GamePlay.hpp"
+#include "GamePlayFHD.hpp"
 #include "MainMenu.hpp"
 #include <iostream>
 #include <SFML/Window/Event.hpp>
@@ -91,7 +92,7 @@ void GameOver::ProcessInput()
             }
             case sf::Keyboard::Escape:
             {
-                m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+                m_context->m_window->close();
                 break;
             }
             case sf::Keyboard::Down:
@@ -171,7 +172,7 @@ void GameOver::Update(sf::Time deltaTime)
 
     if (m_isRetryButtonPressed)
     {
-        m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+        m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
     }
     if (m_isMenuButtonPressed)
     {

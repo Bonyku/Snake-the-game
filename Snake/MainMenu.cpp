@@ -1,5 +1,6 @@
 #include "MainMenu.hpp"
 #include "GamePlay.hpp"
+#include "GamePlayFHD.hpp"
 #include "Resolution.hpp"
 
 #include <iostream>
@@ -235,7 +236,7 @@ void MainMenu::Update(sf::Time deltaTime)
 
     if (m_isPlayButtonPressed)
     {
-        m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+        m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
     }
     if (m_isResolutionButtonPressed)
     {
