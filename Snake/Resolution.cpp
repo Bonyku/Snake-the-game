@@ -192,6 +192,8 @@ void Resolution::Update(sf::Time deltaTime)
     }
     if (m_isSecond_ResolutionPressed)
     {
+            //first_res = 1920;
+            //second_res = 1080;
     }
     else if (m_isBackButtonPressed)
     {

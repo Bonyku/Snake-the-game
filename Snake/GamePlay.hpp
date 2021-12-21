@@ -9,6 +9,7 @@
 #include "Game.hpp"
 #include "State.hpp"
 #include "Snake.hpp"
+#include "Nickname.hpp"
 
 class GamePlay : public Engine::State
 {

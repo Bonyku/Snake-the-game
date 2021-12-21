@@ -42,7 +42,7 @@ void GamePlay::Init()
     std::string food = RandomFood();
 
     m_context->m_assets->AddTexture(GRASS, "grass.png", true);
-    m_context->m_assets->AddTexture(FOOD, food);//trzeba dodac random generator owockow
+    m_context->m_assets->AddTexture(FOOD, food);
     m_context->m_assets->AddTexture(WALL, "wall.png", true);
     m_context->m_assets->AddTexture(SNAKE, "body.png");
 

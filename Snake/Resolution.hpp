@@ -32,6 +32,7 @@ public:
     Resolution(std::shared_ptr<Context>& context);
     ~Resolution();
 
+
     void Init() override;
     void ProcessInput() override;
     void Update(sf::Time deltaTime) override;
