@@ -5,10 +5,18 @@
 #include "MainMenu.hpp"
 #include "Resolution.hpp"
 
-Game::Game() : m_context(std::make_shared<Context>())
+/*Game::Game() : m_context(std::make_shared<Context>())
 {
 
     m_context->m_window->create(sf::VideoMode(first_res, second_res), "Snake The Game", sf::Style::Fullscreen);
+    m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
+}*/
+
+Game::Game(int first, int second) : m_context(std::make_shared<Context>()) {
+    this->first_res = first;
+    this->second_res = second;
+
+    m_context->m_window->create(sf::VideoMode(first_res, second_res), "Snake The Game");
     m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
 }
 

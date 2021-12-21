@@ -189,11 +189,22 @@ void Resolution::Update(sf::Time deltaTime)
 
     if (m_isFirst_ResolutionButtonPressed)
     {
-        m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+       // m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
+        m_context->m_window->close();
+
+        Game game(1280, 720);
+        game.Run();
     }
     if (m_isSecond_ResolutionPressed)
     {
-        m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
+
+       // m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
+
+        m_context->m_window->close();
+
+        Game game(1920, 1080);
+        game.Run();
+
     }
     else if (m_isBackButtonPressed)
     {

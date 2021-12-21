@@ -38,6 +38,7 @@ private:
 
 public:
     Game();
+    Game(int, int);
     ~Game();
 
     void Run();
