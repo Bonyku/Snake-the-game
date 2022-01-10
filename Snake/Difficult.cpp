@@ -30,22 +30,22 @@ void Difficult::Init()
         m_context->m_window->getSize().y / 2 - 150.f);
 
     // Play Button
-    m_playButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
-    m_playButton.setString("Small");
-    m_playButton.setOrigin(m_playButton.getLocalBounds().width / 2,
-        m_playButton.getLocalBounds().height / 2);
-    m_playButton.setPosition(m_context->m_window->getSize().x / 2,
+    m_smallButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
+    m_smallButton.setString("Small");
+    m_smallButton.setOrigin(m_smallButton.getLocalBounds().width / 2,
+        m_smallButton.getLocalBounds().height / 2);
+    m_smallButton.setPosition(m_context->m_window->getSize().x / 2,
         m_context->m_window->getSize().y / 2 - 25.f);
-    m_playButton.setCharacterSize(20);
+    m_smallButton.setCharacterSize(20);
 
     // Resolution Button
-    m_resolutionButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
-    m_resolutionButton.setString("Large");
-    m_resolutionButton.setOrigin(m_resolutionButton.getLocalBounds().width / 2,
-        m_resolutionButton.getLocalBounds().height / 2);
-    m_resolutionButton.setPosition(m_context->m_window->getSize().x / 2,
+    m_largeButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
+    m_largeButton.setString("Large");
+    m_largeButton.setOrigin(m_largeButton.getLocalBounds().width / 2,
+        m_largeButton.getLocalBounds().height / 2);
+    m_largeButton.setPosition(m_context->m_window->getSize().x / 2,
         m_context->m_window->getSize().y / 2 + 25.f);
-    m_resolutionButton.setCharacterSize(20);
+    m_largeButton.setCharacterSize(20);
 
     // Exit Button
     m_exitButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
@@ -149,7 +149,7 @@ void Difficult::ProcessInput()
                 }
                 else if (m_isSmallButtonSelected)
                 {
-                    m_isLargeButtonPressed = true;
+                    m_isSmallButtonPressed = true;
                 }
                 else if (m_isExitButtonSelected)
                 {
@@ -171,20 +171,20 @@ void Difficult::Update(sf::Time deltaTime)
 {
     if (m_isLargeButtonSelected)
     {
-        m_playButton.setFillColor(sf::Color::Red);
-        m_resolutionButton.setFillColor(sf::Color::White);
+        m_smallButton.setFillColor(sf::Color::Red);
+        m_largeButton.setFillColor(sf::Color::White);
         m_exitButton.setFillColor(sf::Color::White);
     }
     else if (m_isSmallButtonSelected)
     {
-        m_playButton.setFillColor(sf::Color::White);
-        m_resolutionButton.setFillColor(sf::Color::Red);
+        m_smallButton.setFillColor(sf::Color::White);
+        m_largeButton.setFillColor(sf::Color::Red);
         m_exitButton.setFillColor(sf::Color::White);
     }
     else if (m_isExitButtonSelected)
     {
-        m_playButton.setFillColor(sf::Color::White);
-        m_resolutionButton.setFillColor(sf::Color::White);
+        m_smallButton.setFillColor(sf::Color::White);
+        m_largeButton.setFillColor(sf::Color::White);
         m_exitButton.setFillColor(sf::Color::Red);
     }
 
@@ -208,8 +208,8 @@ void Difficult::Draw()
 {
     m_context->m_window->clear(sf::Color::Black);
     m_context->m_window->draw(m_gameTitle);
-    m_context->m_window->draw(m_playButton);
-    m_context->m_window->draw(m_resolutionButton);
+    m_context->m_window->draw(m_largeButton);
+    m_context->m_window->draw(m_smallButton);
     m_context->m_window->draw(m_exitButton);
     m_context->m_window->display();
 }

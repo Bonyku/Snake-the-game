@@ -13,8 +13,8 @@ class Difficult : public Engine::State
 private:
     std::shared_ptr<Context> m_context;
     sf::Text m_gameTitle;
-    sf::Text m_playButton;
-    sf::Text m_resolutionButton;
+    sf::Text m_largeButton;
+    sf::Text m_smallButton;
     sf::Text m_exitButton;
 
     bool m_isLargeButtonSelected;
