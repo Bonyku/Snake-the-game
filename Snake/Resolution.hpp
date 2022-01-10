@@ -14,6 +14,8 @@ private:
     sf::Text m_gameTitle;
     sf::Text m_first_resolutionButton;
     sf::Text m_second_resolutionButton;
+    sf::Text m_third_resolutionButton;
+    sf::Text m_fourth_resolutionButton;
     sf::Text m_backButton;
 
 
@@ -23,10 +25,16 @@ private:
     bool m_isSecond_ResolutionSelected;
     bool m_isSecond_ResolutionPressed;
 
+    bool m_isthird_ResolutionButtonSelected;
+    bool m_isthird_ResolutionButtonPressed;
+
+    bool m_isfourth_ResolutionButtonSelected;
+    bool m_isfourth_ResolutionButtonPressed;
+
     bool m_isBackButtonSelected;
     bool m_isBackButtonPressed;
 
-    int key_counter = 2;
+    int key_counter = 4;
 
 public:
     Resolution(std::shared_ptr<Context>& context);
