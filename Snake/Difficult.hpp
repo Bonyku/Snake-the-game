@@ -26,7 +26,7 @@ private:
     bool m_isExitButtonSelected;
     bool m_isExitButtonPressed;
 
-    int key_counter = 3;
+    int key_counter = 2;
 
 public:
     Difficult(std::shared_ptr<Context>& context);

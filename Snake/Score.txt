@@ -19,3 +19,7 @@ This is a score: 0
 This is a score: 0
 This is a score: 1
 This is a score: 9
+This is a score: 1
+This is a score: 2
+This is a score: 2
+This is a score: 1

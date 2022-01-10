@@ -40,6 +40,7 @@ std::string RandomFood()
 void GamePlay::Init()
 {
     std::string food = RandomFood();
+    m_walls.reserve(4);
 
     m_context->m_assets->AddTexture(GRASS, "grass.png", true);
     m_context->m_assets->AddTexture(FOOD, food);
