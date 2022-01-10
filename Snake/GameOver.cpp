@@ -4,6 +4,7 @@
 #include "MainMenu.hpp"
 #include <iostream>
 #include <SFML/Window/Event.hpp>
+#include "Difficult.hpp"
 
 GameOver::GameOver(std::shared_ptr<Context>& context)
     : m_context(context), m_isRetryButtonSelected(true),
@@ -172,7 +173,7 @@ void GameOver::Update(sf::Time deltaTime)
 
     if (m_isRetryButtonPressed)
     {
-        m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
+        m_context->m_states->Add(std::make_unique<Difficult>(m_context), true);
     }
     if (m_isMenuButtonPressed)
     {

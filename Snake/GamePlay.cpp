@@ -49,6 +49,7 @@ void GamePlay::Init()
     m_grass.setTexture(m_context->m_assets->GetTexture(GRASS));
     m_grass.setTextureRect(m_context->m_window->getViewport(m_context->m_window->getDefaultView()));
 
+
     for (auto& wall : m_walls)
     {
         wall.setTexture(m_context->m_assets->GetTexture(WALL));
@@ -128,15 +129,16 @@ void GamePlay::Update(sf::Time deltaTime)
             {
                 if (m_snake.IsOn(wall))
                 {
-                    int score = m_score;
-                    std::ofstream myfile("Score.txt");
-                    if (myfile.is_open())
-                    {
-                        myfile << "This is a score: ";
-                        myfile << score;
-                        myfile.close();
-                        std::cout << score;
-                    }
+                    m_score;
+
+                    std::ofstream myfile;         
+                    myfile.open("Score.txt", std::ios_base::app);
+
+                    myfile << "This is a score: ";
+                    myfile << m_score;
+                    myfile << "\n";
+                    myfile.close();
+
                     m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
                     break;
                 }
@@ -154,6 +156,7 @@ void GamePlay::Update(sf::Time deltaTime)
                 m_context->m_assets->AddTexture(FOOD, food);
                 m_food.setTexture(m_context->m_assets->GetTexture(FOOD));
                 m_food.setPosition(x, y);
+                std::cout << m_score;
                 m_score += 1;
                 m_scoreText.setString("Score : " + std::to_string(m_score));
             }
@@ -164,15 +167,14 @@ void GamePlay::Update(sf::Time deltaTime)
 
             if (m_snake.IsSelfIntersecting())
             {
-                int score = m_score;
-                std::ofstream myfile("Score.txt");
-                if (myfile.is_open())
-                {
-                    myfile << "This is a score: ";
-                    myfile << score;
-                    myfile.close();
-                    std::cout << score;
-                }
+                std::ofstream myfile;
+                myfile.open("Score.txt", std::ios_base::app);
+
+                myfile << "This is a score: ";
+                myfile << m_score;
+                myfile << "\n";
+                myfile.close();
+
                 m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
             }
 

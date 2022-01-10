@@ -10,7 +10,7 @@
 Difficult::Difficult(std::shared_ptr<Context>& context)
     : m_context(context), m_isPlayButtonSelected(true),
     m_isPlayButtonPressed(false), m_isResolutionButtonSelected(false), m_isResolutionButtonPressed(false),
-    m_isOnlineButtonSelected(false), m_isOnlineButtonPressed(false), m_isExitButtonSelected(false), m_isExitButtonPressed(false)
+    m_isExitButtonSelected(false), m_isExitButtonPressed(false)
 {
 }
 

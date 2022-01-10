@@ -99,8 +99,8 @@ void Resolution::ProcessInput()
             {
             case sf::Keyboard::Up:
             {
-
                 key_counter++;
+
                 if (key_counter == 5) {
                     key_counter = 0;
                 }
@@ -112,42 +112,34 @@ void Resolution::ProcessInput()
                     m_isfourth_ResolutionButtonSelected = false;
                     m_isBackButtonSelected = false;
                 }
-                else
-                    if (key_counter == 3)
-                    {
-                        m_isFirst_ResolutionButtonSelected = false;
-                        m_isSecond_ResolutionSelected = true;
-                        m_isthird_ResolutionButtonSelected = false;
-                        m_isfourth_ResolutionButtonSelected = false;
-                        m_isBackButtonSelected = false;
-                    }
-                    else
-                        if (key_counter == 2)
-                        {
-                            m_isFirst_ResolutionButtonSelected = false;
-                            m_isSecond_ResolutionSelected = false;
-                            m_isthird_ResolutionButtonSelected = true;
-                            m_isfourth_ResolutionButtonSelected = false;
-                            m_isBackButtonSelected = false;
-                        }
-                        else
-                            if (key_counter == 1)
-                            {
-                                m_isFirst_ResolutionButtonSelected = false;
-                                m_isSecond_ResolutionSelected = false;
-                                m_isthird_ResolutionButtonSelected = false;
-                                m_isfourth_ResolutionButtonSelected = true;
-                                m_isBackButtonSelected = false;
-                            }
-                            else
-                                if (key_counter == 0)
-                                {
-                                    m_isFirst_ResolutionButtonSelected = false;
-                                    m_isSecond_ResolutionSelected = false;
-                                    m_isthird_ResolutionButtonSelected = false;
-                                    m_isfourth_ResolutionButtonSelected = false;
-                                    m_isBackButtonSelected = true;
-                                }
+                else if (key_counter == 3) {
+                     m_isFirst_ResolutionButtonSelected = false;
+                     m_isSecond_ResolutionSelected = true;
+                     m_isthird_ResolutionButtonSelected = false;
+                     m_isfourth_ResolutionButtonSelected = false;
+                     m_isBackButtonSelected = false;
+                 }
+                else if (key_counter == 2) {
+                     m_isFirst_ResolutionButtonSelected = false;
+                     m_isSecond_ResolutionSelected = false;
+                     m_isthird_ResolutionButtonSelected = true;
+                     m_isfourth_ResolutionButtonSelected = false;
+                     m_isBackButtonSelected = false;
+                 }
+                else if (key_counter == 1) {
+                     m_isFirst_ResolutionButtonSelected = false;
+                     m_isSecond_ResolutionSelected = false;
+                     m_isthird_ResolutionButtonSelected = false;
+                     m_isfourth_ResolutionButtonSelected = true;
+                     m_isBackButtonSelected = false;
+                 }
+                 else if (key_counter == 0) {
+                     m_isFirst_ResolutionButtonSelected = false;
+                     m_isSecond_ResolutionSelected = false;
+                     m_isthird_ResolutionButtonSelected = false;
+                     m_isfourth_ResolutionButtonSelected = false;
+                     m_isBackButtonSelected = true;
+                 }
 
                 break;
             }
@@ -301,7 +293,7 @@ void Resolution::Update(sf::Time deltaTime)
         Game game(1280, 720);
         game.Run();
     }
-    if (m_isSecond_ResolutionSelected)
+    if (m_isSecond_ResolutionPressed)
     {
 
        // m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);

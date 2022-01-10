@@ -129,15 +129,15 @@ void GamePlayFHD::Update(sf::Time deltaTime)
             {
                 if (m_snake.IsOn(wall))
                 {
-                    int score = m_score;
-                    std::ofstream myfile("Score.txt");
-                    if (myfile.is_open())
-                    {
-                        myfile << "This is a score: ";
-                        myfile << score;
-                        myfile.close();
-                        std::cout << score;
-                    }
+                    std::ofstream myfile;
+                    myfile.open("Score.txt", std::ios_base::app);
+
+                    myfile << "This is a score: ";
+                    myfile << m_score;
+                    myfile << "\n";
+                    myfile.close();
+
+                    std::cout << m_score << std::endl;
                     m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
                     break;
                 }
@@ -165,15 +165,14 @@ void GamePlayFHD::Update(sf::Time deltaTime)
 
             if (m_snake.IsSelfIntersecting())
             {
-                int score = m_score;
-                std::ofstream myfile("Score.txt");
-                if (myfile.is_open())
-                {
-                    myfile << "This is a score: ";
-                    myfile << score;
-                    myfile.close();
-                    std::cout << score;
-                }
+                std::ofstream myfile;
+                myfile.open("Score.txt", std::ios_base::app);
+
+                myfile << "This is a score: ";
+                myfile << m_score;
+                myfile << "\n";
+                myfile.close();
+
                 m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
             }
 
