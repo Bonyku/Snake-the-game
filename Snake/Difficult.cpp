@@ -43,7 +43,7 @@ void Difficult::Init()
     m_resolutionButton.setString("Large");
     m_resolutionButton.setOrigin(m_resolutionButton.getLocalBounds().width / 2,
         m_resolutionButton.getLocalBounds().height / 2);
-    m_resolutionButton.setPosition(m_context->m_window->getSize().x / 2 ,
+    m_resolutionButton.setPosition(m_context->m_window->getSize().x / 2,
         m_context->m_window->getSize().y / 2 + 25.f);
     m_resolutionButton.setCharacterSize(20);
 
@@ -92,12 +92,12 @@ void Difficult::ProcessInput()
                         m_isExitButtonSelected = false;
                     }
                     else
-                            if (key_counter == 0)
-                            {
-                                m_isLargeButtonSelected = false;
-                                m_isSmallButtonSelected = false;
-                                m_isExitButtonSelected = true;
-                            }
+                        if (key_counter == 0)
+                        {
+                            m_isLargeButtonSelected = false;
+                            m_isSmallButtonSelected = false;
+                            m_isExitButtonSelected = true;
+                        }
 
 
                 break;
@@ -123,13 +123,13 @@ void Difficult::ProcessInput()
                     }
                     else
 
-                            if (key_counter == 0)
-                            {
-                                m_isLargeButtonSelected = false;
-                                m_isSmallButtonSelected = false;
-                                m_isExitButtonSelected = true;
+                        if (key_counter == 0)
+                        {
+                            m_isLargeButtonSelected = false;
+                            m_isSmallButtonSelected = false;
+                            m_isExitButtonSelected = true;
 
-                            }
+                        }
                 break;
             }
             case sf::Keyboard::Escape:
@@ -187,7 +187,7 @@ void Difficult::Update(sf::Time deltaTime)
         m_resolutionButton.setFillColor(sf::Color::White);
         m_exitButton.setFillColor(sf::Color::Red);
     }
-   
+
 
     if (m_isLargeButtonPressed)
     {
