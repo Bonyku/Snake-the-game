@@ -1,5 +1,4 @@
 #pragma once
-
 #include <memory>
 #include <array>
 #include <vector>
@@ -18,7 +17,7 @@ private:
     std::shared_ptr<Context> m_context;
     sf::Sprite m_grass;
     sf::Sprite m_food;
-    std::vector<sf::Sprite> m_walls;
+    std::array<sf::Sprite, 4> m_walls;
 
     Snake m_snake;
 

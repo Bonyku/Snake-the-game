@@ -8,12 +8,11 @@
 #include <SFML/Window/Event.hpp>
 
 Difficult::Difficult(std::shared_ptr<Context>& context)
-    : m_context(context), m_isPlayButtonSelected(true),
-    m_isPlayButtonPressed(false), m_isResolutionButtonSelected(false), m_isResolutionButtonPressed(false),
+    : m_context(context), m_isLargeButtonSelected(true),
+    m_isLargeButtonPressed(false), m_isSmallButtonSelected(false), m_isSmallButtonPressed(false),
     m_isExitButtonSelected(false), m_isExitButtonPressed(false)
 {
 }
-
 Difficult::~Difficult()
 {
 }
@@ -44,7 +43,7 @@ void Difficult::Init()
     m_resolutionButton.setString("Large");
     m_resolutionButton.setOrigin(m_resolutionButton.getLocalBounds().width / 2,
         m_resolutionButton.getLocalBounds().height / 2);
-    m_resolutionButton.setPosition(m_context->m_window->getSize().x / 2 ,
+    m_resolutionButton.setPosition(m_context->m_window->getSize().x / 2,
         m_context->m_window->getSize().y / 2 + 25.f);
     m_resolutionButton.setCharacterSize(20);
 
@@ -81,24 +80,24 @@ void Difficult::ProcessInput()
                 }
                 if (key_counter == 2)
                 {
-                    m_isPlayButtonSelected = true;
-                    m_isResolutionButtonSelected = false;
+                    m_isLargeButtonSelected = true;
+                    m_isSmallButtonSelected = false;
                     m_isExitButtonSelected = false;
                 }
                 else
                     if (key_counter == 1)
                     {
-                        m_isPlayButtonSelected = false;
-                        m_isResolutionButtonSelected = true;
+                        m_isLargeButtonSelected = false;
+                        m_isSmallButtonSelected = true;
                         m_isExitButtonSelected = false;
                     }
                     else
-                            if (key_counter == 0)
-                            {
-                                m_isPlayButtonSelected = false;
-                                m_isResolutionButtonSelected = false;
-                                m_isExitButtonSelected = true;
-                            }
+                        if (key_counter == 0)
+                        {
+                            m_isLargeButtonSelected = false;
+                            m_isSmallButtonSelected = false;
+                            m_isExitButtonSelected = true;
+                        }
 
 
                 break;
@@ -111,26 +110,26 @@ void Difficult::ProcessInput()
                 }
                 if (key_counter == 2)
                 {
-                    m_isPlayButtonSelected = true;
-                    m_isResolutionButtonSelected = false;
+                    m_isLargeButtonSelected = true;
+                    m_isSmallButtonSelected = false;
                     m_isExitButtonSelected = false;
                 }
                 else
                     if (key_counter == 1)
                     {
-                        m_isPlayButtonSelected = false;
-                        m_isResolutionButtonSelected = true;
+                        m_isLargeButtonSelected = false;
+                        m_isSmallButtonSelected = true;
                         m_isExitButtonSelected = false;
                     }
                     else
 
-                            if (key_counter == 0)
-                            {
-                                m_isPlayButtonSelected = false;
-                                m_isResolutionButtonSelected = false;
-                                m_isExitButtonSelected = true;
+                        if (key_counter == 0)
+                        {
+                            m_isLargeButtonSelected = false;
+                            m_isSmallButtonSelected = false;
+                            m_isExitButtonSelected = true;
 
-                            }
+                        }
                 break;
             }
             case sf::Keyboard::Escape:
@@ -140,17 +139,17 @@ void Difficult::ProcessInput()
             }
             case sf::Keyboard::Return:
             {
-                m_isPlayButtonPressed = false;
-                m_isResolutionButtonPressed = false;
+                m_isLargeButtonPressed = false;
+                m_isSmallButtonPressed = false;
                 m_isExitButtonPressed = false;
 
-                if (m_isPlayButtonSelected)
+                if (m_isLargeButtonSelected)
                 {
-                    m_isPlayButtonPressed = true;
+                    m_isLargeButtonPressed = true;
                 }
-                else if (m_isResolutionButtonSelected)
+                else if (m_isSmallButtonSelected)
                 {
-                    m_isResolutionButtonPressed = true;
+                    m_isSmallButtonPressed = true;
                 }
                 else if (m_isExitButtonSelected)
                 {
@@ -170,13 +169,13 @@ void Difficult::ProcessInput()
 
 void Difficult::Update(sf::Time deltaTime)
 {
-    if (m_isPlayButtonSelected)
+    if (m_isLargeButtonSelected)
     {
         m_playButton.setFillColor(sf::Color::Red);
         m_resolutionButton.setFillColor(sf::Color::White);
         m_exitButton.setFillColor(sf::Color::White);
     }
-    else if (m_isResolutionButtonSelected)
+    else if (m_isSmallButtonSelected)
     {
         m_playButton.setFillColor(sf::Color::White);
         m_resolutionButton.setFillColor(sf::Color::Red);
@@ -188,13 +187,13 @@ void Difficult::Update(sf::Time deltaTime)
         m_resolutionButton.setFillColor(sf::Color::White);
         m_exitButton.setFillColor(sf::Color::Red);
     }
-   
 
-    if (m_isPlayButtonPressed)
+
+    if (m_isLargeButtonPressed)
     {
         m_context->m_states->Add(std::make_unique<GamePlayFHD>(m_context), true);
     }
-    if (m_isResolutionButtonPressed)
+    if (m_isSmallButtonPressed)
     {
         m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
     }
