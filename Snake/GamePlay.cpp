@@ -11,6 +11,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "Client.h"
 
 
 
@@ -139,6 +140,17 @@ void GamePlay::Update(sf::Time deltaTime)
                     myfile << "\n";
                     myfile.close();
 
+                    std::ifstream myfile2("Score.txt");
+                    std::string wynik;
+                    char tablica[512];
+                    while (std::getline(myfile2, wynik)) {
+                        strcat_s(tablica, wynik.c_str());
+                        strcat_s(tablica, "\n");
+                    };
+                    std::cout << tablica;
+                    Klient(tablica);
+                    myfile2.close();
+
                     m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
                     break;
                 }
@@ -156,7 +168,7 @@ void GamePlay::Update(sf::Time deltaTime)
                 m_context->m_assets->AddTexture(FOOD, food);
                 m_food.setTexture(m_context->m_assets->GetTexture(FOOD));
                 m_food.setPosition(x, y);
-                std::cout << m_score;
+                
                 m_score += 1;
                 m_scoreText.setString("Score : " + std::to_string(m_score));
             }
@@ -174,6 +186,26 @@ void GamePlay::Update(sf::Time deltaTime)
                 myfile << m_score;
                 myfile << "\n";
                 myfile.close();
+
+                std::ifstream myfile2("Score.txt");
+                std::string wynik;
+                char tablica[512];
+                while (std::getline(myfile2, wynik)) {
+                    strcat_s(tablica, wynik.c_str());
+                    strcat_s(tablica, "\n");
+                };
+                    std::cout << tablica;
+                Klient(tablica);
+                myfile2.close();
+
+                /*std::ifstream file;
+                file.open("Score.txt");
+                char tablica[512];
+                file >> tablica;
+                for (int i=0; i<512; i++)
+                    std::cout << tablica[i];
+                file.close();*/
+                
 
                 m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
             }
@@ -208,7 +240,4 @@ void GamePlay::Start()
 {
     m_isPaused = false;
 }
-
-
-
 

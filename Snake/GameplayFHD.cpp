@@ -12,6 +12,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "Client.h"
 
 
 
@@ -137,7 +138,17 @@ void GamePlayFHD::Update(sf::Time deltaTime)
                     myfile << "\n";
                     myfile.close();
 
-                    std::cout << m_score << std::endl;
+                    std::ifstream myfile2("Score.txt");
+                    std::string wynik;
+                    char tablica[512];
+                    while (std::getline(myfile2, wynik)) {
+                        strcat_s(tablica, wynik.c_str());
+                        strcat_s(tablica, "\n");
+                    };
+                    std::cout << tablica;
+                    Klient(tablica);
+                    myfile2.close();
+
                     m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
                     break;
                 }
@@ -172,6 +183,17 @@ void GamePlayFHD::Update(sf::Time deltaTime)
                 myfile << m_score;
                 myfile << "\n";
                 myfile.close();
+
+                std::ifstream myfile2("Score.txt");
+                std::string wynik;
+                char tablica[512];
+                while (std::getline(myfile2, wynik)) {
+                    strcat_s(tablica, wynik.c_str());
+                    strcat_s(tablica, "\n");
+                };
+                std::cout << tablica;
+                Klient(tablica);
+                myfile2.close();
 
                 m_context->m_states->Add(std::make_unique<GameOver>(m_context), true);
             }

@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Difficult.cpp" />
     <ClCompile Include="Difficult.hpp" />
     <ClCompile Include="Game.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="GamePlay.hpp" />
     <ClInclude Include="GameplayFHD.hpp" />
     <ClInclude Include="MainMenu.hpp" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Nickname.hpp" />
     <ClInclude Include="PauseGame.hpp" />
     <ClInclude Include="Resolution.hpp" />
