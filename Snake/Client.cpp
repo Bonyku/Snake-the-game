@@ -95,7 +95,6 @@ int __cdecl Klient(char *message)
     }
 
     printf("Bytes Sent: %ld\n", iResult);
-    cout << "Wyslano: " << message << endl;
 
 
     // shutdown the connection since no more data will be sent
