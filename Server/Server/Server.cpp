@@ -1,7 +1,7 @@
 ﻿#undef UNICODE
 
 #define WIN32_LEAN_AND_MEAN
-
+#include <fstream>
 #include <windows.h>
 #include <winsock2.h>
 #include <ws2tcpip.h>
@@ -110,6 +110,12 @@ int __cdecl main(void)
                 return 1;
             }
             printf("Bytes sent: %d\n", iSendResult);
+            std::ofstream myfile;
+            myfile.open("Score.txt", std::ios_base::app);
+
+            myfile << recvbuf;
+            myfile << "\n";
+            myfile.close();
         }
         else if (iResult == 0)
             printf("Connection closing...\n");
